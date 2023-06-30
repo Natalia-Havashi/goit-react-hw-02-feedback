@@ -4,12 +4,10 @@ export const Container = styled.div `
 background-color: #F9F7F4;
   border: 1px solid #bbc7c9;
   border-radius: 5px;
-  height: 400px;
+  height: 200px;
   width: 320px;
-  margin-bottom: 40px;
-  
+   
 `
-
 export const ContainerBtn = styled.div `
 display: flex;
 gap: 10px;
@@ -33,9 +31,17 @@ font-weight: 500;
 font-size: 30px;
 ` 
 
-export const Response = styled.p `
+export const Response = styled.li `
 font-family: Roboto;
 font-size: 18px;
 font-weight: 500;
+list-style: none;
 
+`
+
+export const Messege = styled.p `
+font-family: Roboto;
+font-size: 28px;
+font-weight: 500;
+text-align: center;
 `
