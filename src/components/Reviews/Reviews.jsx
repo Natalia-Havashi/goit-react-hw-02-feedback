@@ -1,11 +1,9 @@
+import { Button, Container, ContainerBtn, Feedback, Response } from "./Reviews.styled";
+
 const { Component } = require("react");
 
 class Reviews extends Component {
-    state = {
-        good: 0,
-        neutral: 0,
-        bad: 0
-    }
+   
     clickGood =() => 
     this.setState((prevState) => ({
             good: prevState.good + 1,
@@ -19,21 +17,27 @@ class Reviews extends Component {
             bad: prevState.bad + 1,
             }))
 
+    totalFeedback = () => {
+        let total = this.state.good + this.state.neutral + this.state.bad;
+        return total;
+            };
+
     render () {
         return (
-            <div>
-                <h2>Please leave feedback</h2>
+            <Container>
+                <Feedback>Please leave feedback</Feedback>
+                <ContainerBtn>
+                    <Button onClick={this.clickGood}>Good</Button>
+                    <Button onClick={this.clickNeutral}>Neutral</Button>
+                    <Button onClick={this.clickBad}>Bad</Button>
+                </ContainerBtn>
                 <div>
-                    <button onClick={this.clickGood}>Good</button>
-                    <button onClick={this.clickNeutral}>Neutral</button>
-                    <button onClick={this.clickBad}>Bad</button>
+                    <Response>Good: {this.state.good}</Response>
+                    <Response>Neutral: {this.state.neutral}</Response>
+                    <Response>Bad: {this.state.bad}</Response>
+                    <p>Title: {this.totalFeedback}</p>
                 </div>
-                <div>
-                    <p>Good:{this.state.good}</p>
-                    <p>Neutral:{this.state.neutral}</p>
-                    <p>Bad:{this.state.bad}</p>
-                </div>
-            </div>
+            </Container>
         )
     }
 }
