@@ -1,4 +1,5 @@
 import { Button, ContainerBtn } from 'components/Reviews.styled';
+import PropTypes from 'prop-types';
 
 export const FeedbackOption = ({ options, handleFeedback }) => (
   <ContainerBtn>
@@ -12,3 +13,9 @@ export const FeedbackOption = ({ options, handleFeedback }) => (
     ))}
   </ContainerBtn>
 );
+
+
+FeedbackOption.propTypes = {
+  options: PropTypes.array.isRequired,
+  handleFeedback: PropTypes.func.isRequired,
+}
